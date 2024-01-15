@@ -4,7 +4,7 @@
 
 SecurityEvent
 | project TimeGenerated, EventID, TargetAccount, SubjectAccount, UserAccountControl
-| where EventID == "4738"
+| where EventID == "4738", "4739"
 | where UserAccountControl has_any("2094", "2062")
 | extend Activity = case
     (UserAccountControl contains "2094", strcat("Account Sensitivity Enabled"),
